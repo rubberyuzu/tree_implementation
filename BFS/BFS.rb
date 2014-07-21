@@ -3,7 +3,7 @@ class BFS
 		@list = list
 	end
 
-	def search(first)
+	def search(first, target)
 		queue = [first]
 		visited = { first => true }
 		p first
@@ -12,6 +12,10 @@ class BFS
 			@list[node].each do |child|
 				unless visited[child]
 					p child
+					if child == target
+						p "search done" 
+						exit
+					end
 					queue << child
 					visited[child] = true
 				end
@@ -31,4 +35,4 @@ list = {
   "F" => ["B","C"]
  }
  bfs = BFS.new(list)
- bfs.search("A")
+ bfs.search("A", "D")
