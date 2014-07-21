@@ -8,7 +8,7 @@ class BFS
 		visited = { first => true }
 		p first
 		while !queue.empty?
-			node = queue.pop
+			node = queue.shift
 			@list[node].each do |child|
 				unless visited[child]
 					p child
@@ -35,4 +35,4 @@ list = {
   "F" => ["B","C"]
  }
  bfs = BFS.new(list)
- bfs.search("A", "D")
+ bfs.search("A", "F")
